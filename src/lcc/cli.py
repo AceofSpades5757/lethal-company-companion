@@ -189,7 +189,7 @@ def main(
     os._exit(0)
 
 
-app = typer.Typer()
+app: typer.Typer = typer.Typer(no_args_is_help=True)
 
 
 @app.command()
