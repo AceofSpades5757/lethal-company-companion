@@ -210,7 +210,7 @@ def run(
 def help_() -> None:
     """Print help text."""
     command = typer.main.get_command(app)
-    ctx = typer.Context(command)
+    ctx: typer.Context = typer.Context(command)
     typer.echo(ctx.get_help())
 
 
