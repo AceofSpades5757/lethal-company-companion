@@ -197,13 +197,14 @@ def run(
     )
 
 
-@app.command()
-def help() -> None:
+@app.command(
+    name='help',
+)
+def help_() -> None:
     """Print help text."""
     command = typer.main.get_command(app)
     ctx = typer.Context(command)
     typer.echo(ctx.get_help())
-    typer.echo(command.get_help(ctx))
 
 
 if __name__ == '__main__':
