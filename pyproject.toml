@@ -24,4 +24,4 @@ dev = [
 ]
 
 [project.scripts]
-lcc = "lethal_company_companion.__main__:app"
+lcc = "lethal_company_companion.cli:app"
