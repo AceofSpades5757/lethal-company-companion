@@ -17,9 +17,6 @@ dependencies = [
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-#[project.dependencies]
-#typer = { version = "*", extras = ["all"] }
-
 [project.optional-dependencies]
 
 [project.scripts]
