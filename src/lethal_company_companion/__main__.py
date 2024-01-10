@@ -1,4 +1,4 @@
-"""Tool to help with Lethal Company Flash.
+r"""Tool to help with Lethal Company Flash.
 
 TODO: Switch from direct keys, like F1, to something using a <LEADER> key, like
 `,,`.
