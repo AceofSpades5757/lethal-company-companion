@@ -18,6 +18,11 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "mypy",
+]
 
 [project.scripts]
 lcc = "lethal_company_companion.__main__:app"
