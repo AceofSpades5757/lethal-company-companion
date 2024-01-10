@@ -8,13 +8,17 @@ authors = [
 license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.12"
+dependencies = [
+    "keyboard",
+    "typer[all]",
+]
 
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[project.dependencies]
-typer = { version = "*", extras = ["all"] }
+#[project.dependencies]
+#typer = { version = "*", extras = ["all"] }
 
 [project.optional-dependencies]
 
