@@ -1,0 +1,23 @@
+[project]
+name = "lethal_company_companion"
+version = "0.0.1"
+description = "A companion app for the Lethal Company game."
+authors = [
+    { name = "Kyle L. Davis", email = "kyle.l.davis57@gmail.com" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.12"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.dependencies]
+typer = { version = "*", extras = ["all"] }
+
+[project.optional-dependencies]
+
+[project.scripts]
+#lcc = "lethal_company_companion.__main__:main"
+lcc = "lethal_company_companion.main:app"
