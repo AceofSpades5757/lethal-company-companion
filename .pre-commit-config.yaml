@@ -1,0 +1,36 @@
+# Would run in parent directory
+repos:
+  # Check YAML; Fix end of files; Fix trailing whitespace
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+        name: Check Yaml
+      - id: end-of-file-fixer
+        name: Fix End of Files
+      - id: trailing-whitespace
+        name: Fix Trailing Whitespace
+  # Python - Reorder Imports
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+        args:
+          - --force-single-line-imports
+  # Python - Code Formatting
+  - repo: https://github.com/psf/black
+    rev: 23.7.0
+    hooks:
+      - id: black
+        name: Code Formatter (black)
+        exclude: hooks/.*
+        args:
+          - --line-length
+          - "79"
+  # Formatter - General
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.2
+    hooks:
+      - id: prettier
+        name: General Formatter
