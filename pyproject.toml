@@ -21,4 +21,5 @@ build-backend = "setuptools.build_meta"
 
 [project.scripts]
 #lcc = "lethal_company_companion.__main__:main"
-lcc = "lethal_company_companion.main:app"
+lcc = "lethal_company_companion.__main__:app"
+#lcc = "lethal_company_companion.main:app"
