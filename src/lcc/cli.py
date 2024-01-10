@@ -4,9 +4,6 @@ TODO: Switch from direct keys, like F1, to something using a <LEADER> key, like
 `,,`.
     Just like Vim does it.
     An issue would be for longer sequences, like `,,ef` on top of `,,e`.
-TODO: Refactor to a CLI tool.
-    TODO: Refactor the radar boster name to be a command line argument.
-        e.g. `python macro_lethal_company_flash.py --radar-booster="Radar Booster"`
 """
 import logging
 import os
