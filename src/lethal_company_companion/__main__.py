@@ -10,13 +10,15 @@ TODO: Refactor to a CLI tool.
 """
 import logging
 import os
-from typing import Final
+from typing import Final, Optional
 from typing import NoReturn
 from typing import Callable
+from typing import Annotated
 from dataclasses import dataclass
 from dataclasses import field
 
 import keyboard
+import typer
 
 
 LOOP_DELAY: Final[float] = 0.1  # seconds
@@ -58,12 +60,8 @@ class Macro:
 class Settings:
     """Settings class."""
     debug: bool = False
-    radar_booster_name: str = ''
+    radar_booster_name: Optional[str] = None
     macros: list[Macro] = field(default_factory=list)
-
-
-# Globals
-RADAR_BOOSTER_NAME: Final[str] = input('Radar Booster Name: ')
 
 
 def flash(radar_booster: str) -> None:
@@ -78,10 +76,10 @@ def flash(radar_booster: str) -> None:
     # keyboard.press_and_release('enter')
 
 
-def ping() -> None:
+def ping(radar_booster_name: str) -> None:
     """Type out ping macro."""
     keyboard.write('ping ')
-    keyboard.write(RADAR_BOOSTER_NAME)
+    keyboard.write(radar_booster_name)
     keyboard.press_and_release('enter')
 
 
@@ -106,7 +104,9 @@ def toggle_debug(settings: Settings) -> None:
     print(f'DEBUG: {"ON" if settings.debug else "OFF"}')
 
 
-def main() -> NoReturn:
+def main(
+    radar_booster_name: Optional[str] = None,
+) -> NoReturn:
     """Main function."""
     settings: Settings
     macros: list[Macro] = [
@@ -140,18 +140,18 @@ def main() -> NoReturn:
         Macro(
             name='flash',
             keys=('F2',),
-            help_text='Type out flash macro.',
-            function=lambda: flash(RADAR_BOOSTER_NAME),
+            help_text='Type out flash macro.' if radar_booster_name else 'No radar booster name provided.',
+            function=lambda: flash(radar_booster_name) if radar_booster_name else None,
         ),
         Macro(
             name='ping',
             keys=('F3',),
-            help_text='Type out ping macro.',
-            function=ping,
+            help_text='Type out ping macro.' if radar_booster_name else 'No radar booster name provided.',
+            function=lambda: ping(radar_booster_name) if radar_booster_name else None,
         ),
     ]
     settings = Settings(
-        radar_booster_name=RADAR_BOOSTER_NAME,
+        radar_booster_name=radar_booster_name,
         macros=macros,
     )
 
@@ -179,6 +179,31 @@ def main() -> NoReturn:
 
     input('Press ENTER to quit.\n')
     os._exit(0)
+
+
+app = typer.Typer()
+# app = typer.Typer(no_args_is_help=True)
+
+
+@app.command()
+def run(
+    radar_booster_name: Annotated[
+        Optional[str], typer.Option("--radar-booster-name", "-r")
+    ] = None,
+) -> None:
+    """Default command."""
+    main(
+        radar_booster_name=radar_booster_name,
+    )
+
+
+@app.command()
+def help() -> None:
+    """Print help text."""
+    command = typer.main.get_command(app)
+    ctx = typer.Context(command)
+    typer.echo(ctx.get_help())
+    typer.echo(command.get_help(ctx))
 
 
 if __name__ == '__main__':
