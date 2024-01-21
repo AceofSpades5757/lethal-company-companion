@@ -6,6 +6,7 @@ TODO: Switch from direct keys, like F1, to something using a <LEADER> key, like
     An issue would be for longer sequences, like `,,ef` on top of `,,e`.
 """
 import logging
+import time
 import os
 from dataclasses import dataclass
 from dataclasses import field
@@ -16,7 +17,9 @@ from typing import NoReturn
 from typing import Optional
 
 import keyboard
+import mouse
 import typer
+
 
 LOOP_DELAY: Final[float] = 0.1  # seconds
 
@@ -104,6 +107,12 @@ def toggle_debug(settings: Settings) -> None:
     print(f'DEBUG: {"ON" if settings.debug else "OFF"}')
 
 
+def click_mouse_left(clicks: int) -> None:
+    """Rapidly click the left mouse button."""
+    for _ in range(clicks):
+        mouse.click(button="left")
+
+
 def main(
     radar_booster_name: Optional[str] = None,
 ) -> NoReturn:
@@ -156,6 +165,12 @@ def main(
             function=lambda: ping(radar_booster_name)
             if radar_booster_name
             else None,
+        ),
+        Macro(
+            name="mouse (left)",
+            keys=("F6",),
+            help_text="Rapidly click the left mouse button.",
+            function=lambda: click_mouse_left(clicks=250),
         ),
     ]
     settings = Settings(
