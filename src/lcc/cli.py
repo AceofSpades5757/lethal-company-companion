@@ -6,7 +6,6 @@ TODO: Switch from direct keys, like F1, to something using a <LEADER> key, like
     An issue would be for longer sequences, like `,,ef` on top of `,,e`.
 """
 import logging
-import time
 import os
 from dataclasses import dataclass
 from dataclasses import field
