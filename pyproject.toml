@@ -8,10 +8,15 @@ authors = [
 license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.12"
+# TODO: It may be a good idea to split dependencies based on CLI or GUI
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#dependencies-and-requirements
 dependencies = [
     "keyboard",
     "mouse",
+    # CLI
     "typer[all]",
+    # GUI
+    "PySide6",
 ]
 
 [build-system]
@@ -26,3 +31,6 @@ dev = [
 
 [project.scripts]
 lcc = "lcc.cli:app"
+
+[project.gui-scripts]
+lcc-gui = "lcc.gui:app"
