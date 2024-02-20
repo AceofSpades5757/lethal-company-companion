@@ -16,7 +16,6 @@ from typing import NoReturn
 from typing import Optional
 
 import keyboard
-import mouse
 import typer
 
 
@@ -106,12 +105,6 @@ def toggle_debug(settings: Settings) -> None:
     print(f'DEBUG: {"ON" if settings.debug else "OFF"}')
 
 
-def click_mouse_left(clicks: int) -> None:
-    """Rapidly click the left mouse button."""
-    for _ in range(clicks):
-        mouse.click(button="left")
-
-
 def main(
     radar_booster_name: Optional[str] = None,
 ) -> NoReturn:
@@ -164,12 +157,6 @@ def main(
             function=lambda: ping(radar_booster_name)
             if radar_booster_name
             else None,
-        ),
-        Macro(
-            name="mouse (left)",
-            keys=("F6",),
-            help_text="Rapidly click the left mouse button.",
-            function=lambda: click_mouse_left(clicks=250),
         ),
     ]
     settings = Settings(

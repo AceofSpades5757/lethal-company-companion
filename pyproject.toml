@@ -12,7 +12,6 @@ requires-python = ">=3.12"
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#dependencies-and-requirements
 dependencies = [
     "keyboard",
-    "mouse",
     # CLI
     "typer[all]",
     # GUI
