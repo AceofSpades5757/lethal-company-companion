@@ -3,7 +3,7 @@ name = "lethal_company_companion"
 version = "0.0.1"
 description = "A companion app for the Lethal Company game."
 authors = [
-    { name = "Kyle L. Davis", email = "kyle.l.davis57@gmail.com" },
+    { name = "Kyle L. Davis", email = "aceofspades5757.github@gmail.com" },
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
