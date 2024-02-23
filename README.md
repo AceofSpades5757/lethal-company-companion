@@ -1,6 +1,6 @@
-A companion application to assist with lengthy keypresses in the terminal.
+A companion application to assist with the lengthy keypresses in the terminal.
 
-**Features**
+# Features
 
 * `view monitor` command
 * `switch` command
