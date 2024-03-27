@@ -17,6 +17,25 @@ dependencies = [
     # GUI
     "PySide6",
 ]
+keywords = [
+    "lethal company",
+    "companion",
+    "macro",
+    "key macro",
+    "game",
+    "cli",
+    "gui",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Other Audience",  # Gamers
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
 
 [build-system]
 requires = ["setuptools", "wheel"]
