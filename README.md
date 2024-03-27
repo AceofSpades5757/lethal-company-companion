@@ -1,4 +1,4 @@
-A companion application to assist with the lengthy keypresses in the terminal.
+A **Lethal Company** companion application to assist with the lengthy keypresses in the terminal.
 
 # Features
 
@@ -46,3 +46,5 @@ There were plans for a floating GUI to be made with some different options, but 
 * A `<LEADER>` key similar to Vim's leader key.
   * Would allow you to arbitrarily set a key to be the leader key.
   * Would allow you to type `<LEADER> + <COMMAND>` to run a command: e.g. `\s1` to switch to player 1 or `\f` to flash the selected radar booster.
+
+**FOR THE COMPANY!**
