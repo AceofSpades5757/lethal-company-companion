@@ -37,6 +37,7 @@ It allows for an optional argument `--radar-booster` to be passed in to specify 
 
 There were plans for a floating GUI to be made with some different options, but I haven't had the time or interest to work on it. Feel free to reach out if this really interests you.
 
+* Put up on PyPI
 * List of players that could be modified.
   * Would allow certain sets of commands/options so switching to a specific player would be easier, especially in larger groups.
 * List of radar boosters that could be modified and selected.
